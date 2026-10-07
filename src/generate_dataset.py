@@ -1,18 +1,17 @@
 import numpy as np
 import pandas as pd
 
-# ---------------------------------------------------------
 # 1. REPRODUCIBILITY
-# ---------------------------------------------------------
+
 np.random.seed(42)
 
 # Number of students
 N = 1000
 
 
-# ---------------------------------------------------------
+
 # 2. GENERATE STUDENT FEATURES
-# ---------------------------------------------------------
+
 
 student_id = [f"S{i:04d}" for i in range(1, N + 1)]
 
@@ -45,9 +44,7 @@ technical_score = np.round(
 )
 
 
-# ---------------------------------------------------------
 # 3. CALCULATE A HIDDEN PLACEMENT SCORE
-# ---------------------------------------------------------
 # This is used only to generate realistic synthetic outcomes.
 
 placement_score = (
@@ -65,9 +62,9 @@ placement_score = (
 placement_score += np.random.normal(0, 0.8, N)
 
 
-# ---------------------------------------------------------
+
 # 4. CONVERT SCORE INTO PLACEMENT PROBABILITY
-# ---------------------------------------------------------
+
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
@@ -86,9 +83,9 @@ placement_status = np.where(
 )
 
 
-# ---------------------------------------------------------
+
 # 5. GENERATE PACKAGE
-# ---------------------------------------------------------
+
 
 package_lpa = np.where(
     placed == 1,
@@ -112,9 +109,9 @@ package_lpa = np.round(
 )
 
 
-# ---------------------------------------------------------
+
 # 6. CREATE DATAFRAME
-# ---------------------------------------------------------
+
 
 df = pd.DataFrame({
     "student_id": student_id,
@@ -131,9 +128,9 @@ df = pd.DataFrame({
 })
 
 
-# ---------------------------------------------------------
+
 # 7. SAVE DATASET
-# ---------------------------------------------------------
+
 
 df.to_csv(
     "data/placement_data.csv",
@@ -141,9 +138,9 @@ df.to_csv(
 )
 
 
-# ---------------------------------------------------------
+
 # 8. DISPLAY RESULTS
-# ---------------------------------------------------------
+
 
 print("=" * 50)
 print("CAMPUS PLACEMENT DATASET CREATED")

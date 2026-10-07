@@ -1,15 +1,14 @@
 import pandas as pd
 
-# ---------------------------------------------------------
+
 # 1. LOAD THE DATASET
-# ---------------------------------------------------------
+
 
 df = pd.read_csv("data/placement_data.csv")
 
 
-# ---------------------------------------------------------
 # 2. BASIC INFORMATION
-# ---------------------------------------------------------
+
 
 print("=" * 60)
 print("CAMPUS PLACEMENT DATA ANALYSIS")
@@ -19,17 +18,17 @@ print("\nTotal number of students:")
 print(len(df))
 
 
-# ---------------------------------------------------------
+
 # 3. PLACEMENT DISTRIBUTION
-# ---------------------------------------------------------
+
 
 print("\nPlacement Distribution:")
 print(df["placement_status"].value_counts())
 
 
-# ---------------------------------------------------------
+
 # 4. PLACEMENT RATE
-# ---------------------------------------------------------
+
 
 placement_rate = (
     df["placement_status"]
@@ -42,9 +41,9 @@ print("\nPlacement Rate:")
 print(round(placement_rate, 2), "%")
 
 
-# ---------------------------------------------------------
+
 # 5. AVERAGE VALUES
-# ---------------------------------------------------------
+
 
 print("\nAverage CGPA:")
 print(round(df["cgpa"].mean(), 2))
@@ -59,9 +58,9 @@ print("\nAverage Internships:")
 print(round(df["internships"].mean(), 2))
 
 
-# ---------------------------------------------------------
+
 # 6. AVERAGE PACKAGE
-# ---------------------------------------------------------
+
 
 placed_students = df[
     df["placement_status"] == "Placed"
@@ -73,9 +72,9 @@ print("\nAverage Package of Placed Students:")
 print(round(average_package, 2), "LPA")
 
 
-# ---------------------------------------------------------
+
 # 7. COMPARE PLACED VS NOT PLACED
-# ---------------------------------------------------------
+
 
 print("\n" + "=" * 60)
 print("PLACED VS NOT PLACED")
@@ -99,9 +98,8 @@ comparison = df.groupby(
 print(comparison.round(2))
 
 
-# ---------------------------------------------------------
 # 8. DATASET INFORMATION
-# ---------------------------------------------------------
+
 
 print("\n" + "=" * 60)
 print("DATASET INFORMATION")

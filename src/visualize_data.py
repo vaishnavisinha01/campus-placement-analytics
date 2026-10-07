@@ -22,9 +22,9 @@ plt.ylabel("Number of Students")
 plt.tight_layout()
 
 plt.show()
-# ---------------------------------------------------------
+
 # 2. CGPA DISTRIBUTION
-# ---------------------------------------------------------
+
 
 plt.figure(figsize=(8, 5))
 
@@ -40,9 +40,9 @@ plt.ylabel("Number of Students")
 plt.tight_layout()
 
 plt.show()
-# ---------------------------------------------------------
+
 # 3. PROJECTS VS PLACEMENT
-# ---------------------------------------------------------
+
 
 project_placement = pd.crosstab(
     df["projects"],
@@ -61,9 +61,9 @@ plt.ylabel("Number of Students")
 plt.tight_layout()
 
 plt.show()
-# ---------------------------------------------------------
+
 # 4. PLACEMENT RATE BY NUMBER OF PROJECTS
-# ---------------------------------------------------------
+
 
 placement_rate_by_projects = (
     df.groupby("projects")["placement_status"]

@@ -9,16 +9,16 @@ from sklearn.metrics import (
     confusion_matrix
 )
 
-# ---------------------------------------------------------
+
 # 1. LOAD DATA
-# ---------------------------------------------------------
+
 
 df = pd.read_csv("data/placement_data.csv")
 
 
-# ---------------------------------------------------------
+
 # 2. SELECT FEATURES
-# ---------------------------------------------------------
+
 
 features = [
     "cgpa",
@@ -36,9 +36,9 @@ X = df[features]
 y = df["placement_status"]
 
 
-# ---------------------------------------------------------
+
 # 3. SPLIT DATA
-# ---------------------------------------------------------
+
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -49,9 +49,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 
-# ---------------------------------------------------------
+
 # 4. CREATE MODEL
-# ---------------------------------------------------------
+
 
 model = RandomForestClassifier(
     n_estimators=200,
@@ -59,23 +59,22 @@ model = RandomForestClassifier(
 )
 
 
-# ---------------------------------------------------------
+
 # 5. TRAIN MODEL
-# ---------------------------------------------------------
+
 
 model.fit(X_train, y_train)
 
 
-# ---------------------------------------------------------
+
 # 6. MAKE PREDICTIONS
-# ---------------------------------------------------------
+
 
 y_pred = model.predict(X_test)
 
 
-# ---------------------------------------------------------
 # 7. EVALUATE MODEL
-# ---------------------------------------------------------
+
 
 accuracy = accuracy_score(y_test, y_pred)
 
@@ -98,9 +97,9 @@ print("\nConfusion Matrix:")
 print(confusion_matrix(y_test, y_pred))
 
 
-# ---------------------------------------------------------
+
 # 8. FEATURE IMPORTANCE
-# ---------------------------------------------------------
+
 
 importance = pd.DataFrame({
     "feature": features,
@@ -116,9 +115,9 @@ print("\nFeature Importance:")
 print(importance)
 
 
-# ---------------------------------------------------------
+
 # 9. SAVE MODEL
-# ---------------------------------------------------------
+
 
 joblib.dump(
     model,

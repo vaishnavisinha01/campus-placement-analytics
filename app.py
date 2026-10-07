@@ -3,18 +3,18 @@ import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 
-# -----------------------------
+
 # PAGE CONFIG
-# -----------------------------
+
 st.set_page_config(
     page_title="Campus Placement Analytics",
     page_icon="🎓",
     layout="wide"
 )
 
-# -----------------------------
+
 # LOAD DATA AND MODEL
-# -----------------------------
+
 df = pd.read_csv("data/placement_data.csv")
 model = joblib.load("placement_model.pkl")
 
@@ -29,9 +29,9 @@ features = [
     "technical_score"
 ]
 
-# -----------------------------
+
 # TITLE
-# -----------------------------
+
 st.title("🎓 Campus Placement Analytics & Prediction")
 
 st.write(
@@ -41,9 +41,9 @@ st.write(
 
 st.divider()
 
-# -----------------------------
+
 # DATASET OVERVIEW
-# -----------------------------
+
 st.subheader("📊 Dataset Overview")
 
 col1, col2, col3, col4 = st.columns(4)
@@ -80,9 +80,9 @@ with col4:
 
 st.divider()
 
-# -----------------------------
+
 # VISUAL ANALYSIS
-# -----------------------------
+
 st.subheader("📈 Placement Analysis")
 
 col1, col2 = st.columns(2)
@@ -131,9 +131,9 @@ with col2:
 
 st.divider()
 
-# -----------------------------
+
 # PLACEMENT PREDICTION
-# -----------------------------
+
 st.subheader("🤖 Placement Prediction")
 
 st.write(
@@ -211,9 +211,9 @@ with col4:
         70
     )
 
-# -----------------------------
+
 # PREDICTION BUTTON
-# -----------------------------
+
 if st.button(
     "🔮 Predict Placement",
     use_container_width=True
@@ -261,9 +261,9 @@ if st.button(
         float(placed_probability)
     )
 
-# -----------------------------
+
 # SAMPLE DATA
-# -----------------------------
+
 st.divider()
 
 st.subheader("🔍 Sample Dataset")
